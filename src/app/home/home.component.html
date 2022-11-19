@@ -1,0 +1,45 @@
+<div class="container">
+
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Product-type</th>
+                <th scope="col">Category</th>
+                <th scope="col">Base-Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Gst</th>
+                <th scope="col">Delivery-Charges</th>
+                <th scope="col">Final-price</th>
+                <th scope="col">Cart</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let product of products">
+
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.productType}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.basePrice}}</td>
+                <td>{{product.discount}}</td>
+                <td>{{product.charges.gst}}</td>
+                <td>{{product.charges.delivery}}</td>
+                <td> {{product.finalPrice}}</td>
+                <td><button class="btn btn-primary" [disabled]="product.inCart" (click)="addtoCart(product.id)">Add to
+                        Cart</button></td>
+                <!-- <td><button class="btn btn-danger" *ngIf="product.inCart" (click)="removeFromCart(product.id)">Remove From Cart</button></td> -->
+            </tr>
+
+
+        </tbody>
+
+    </table>
+
+</div>
