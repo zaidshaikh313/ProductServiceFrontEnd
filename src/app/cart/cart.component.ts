@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
 
 }
 
+//Getting Products present in Cart  from BackEnd
 getProducts(){
   this.cartProducts=[];
 
@@ -30,6 +31,8 @@ getProducts(){
   })
 
 }
+
+//Removing Product Present in Cart
  removeFromCart(pid){
     this.apiService.removeFromCart(pid).subscribe((res)=>{
       alert(res.message);

@@ -5,34 +5,34 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  url:string="http://localhost:8080/"
+  url:string="http://localhost:8080/cart/"
 
   constructor(
     private http:HttpClient
   ) { }
 
   getProducts(){
-    return this.http.get<any>("http://localhost:8080/cart/products").pipe(map((res:any)=>{
+    return this.http.get<any>(this.url+"products").pipe(map((res:any)=>{
       return res;
     })
     );
   }
   addtoCart(pid:any){
-    return this.http.put<any>("http://localhost:8080/cart/add/" + pid,null).pipe(map((res:any)=>{
+    return this.http.put<any>(this.url+"add/" + pid,null).pipe(map((res:any)=>{
       return res;
     })
     );
 
   }
   removeFromCart(pid:any){
-    return this.http.put<any>("http://localhost:8080/cart/remove/" + pid,null).pipe(map((res:any)=>{
+    return this.http.put<any>(this.url+"remove/" + pid,null).pipe(map((res:any)=>{
       return res;
     })
     );
 
   }
   getCartProducts(){
-    return this.http.get<any>("http://localhost:8080/cart").pipe(map((res:any)=>{
+    return this.http.get<any>(this.url).pipe(map((res:any)=>{
       return res;
     })
     );

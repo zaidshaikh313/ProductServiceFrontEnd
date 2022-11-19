@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   }
 
+  //Getting Products from Backend
   getProducts() {
     this.products = [];
     this.service.getProducts().subscribe((res) => {
@@ -31,13 +32,13 @@ export class HomeComponent implements OnInit {
     });
     console.log(this.products);
   }
+
+  //Adding Product to cart
+
   addtoCart(pid) {
     this.service.addtoCart(pid).subscribe((res) => {
       this.ngOnInit();
-      alert(res.message)
-
-
-
+      alert(res.message);
 
     }, err => {
       alert(err.message);
@@ -46,14 +47,5 @@ export class HomeComponent implements OnInit {
 
 
   }
-  // removeFromCart(pid){
-  //   this.service.removeFromCart(pid).subscribe((res)=>{
-  //     alert(res.message);
-
-  //   },err=>{
-  //     alert(err.message);
-  //   });
-  //   this.ngOnInit();
-  // }
-
+ 
 }
